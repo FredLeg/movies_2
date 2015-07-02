@@ -74,3 +74,4 @@ function showTable( $table_name, $file_name ) {
 	</table>
 <?php
 }
+

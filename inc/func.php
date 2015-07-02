@@ -301,3 +301,19 @@ function getStatusClass($status) {
 	);
 	return $status_classes[$status];
 }
+
+function pagination( $table_name, $nb_items_per_page =20, $nb_pages_active =3, $page_param_name ='p' ){
+	global $db;
+	$page = !empty($_GET['p']) ? intval($_GET['p']) : 1;
+	$page = $page > 0 ? $page : 1;
+	$result = $db->query('SELECT COUNT(*) as nbr FROM '.$table_name)->fetch();
+	$count_movies = $result['nbr'];
+	$nb_pages = ceil($count_movies / $nb_items_per_page);
+	return [	'page'              => $page,
+				'nb_pages'          => $nb_pages,
+				'nb_items_per_page' => $nb_items_per_page,
+				'count_movies'      => $count_movies,
+				'page_param_name'   => $page_param_name,
+				'nb_pages_active'   => $nb_pages_active,
+			];
+}
