@@ -11,11 +11,12 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="index.php">Tableau de bord</a></li>
-					<li><a href="settings.php">Paramètres</a></li>
-					<li><a href="profile.php">Profile</a></li>
-					<li><a href="../index.php">Site</a></li>
-					<li><a href="logout.php">Déconnexion</a></li>
+<?php
+					foreach($pages_names as $file_name => $title):
+						$active = $current_page==$file_name ? ' class="active"' : '';
+						echo tabs(5).'<li'.$active.'><a href="'.$file_name.'">'.$title.'</a></li>'.PHP_EOL;
+					endforeach;
+?>
 				</ul>
 				<!--
 				<form class="navbar-form navbar-right">

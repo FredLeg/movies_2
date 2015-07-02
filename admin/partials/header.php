@@ -1,3 +1,18 @@
+<?php
+include_once '../inc/config.php';
+include_once '../inc/db.php';
+include_once '../inc/func.php';
+include_once 'php/func.php';
+$pages_names = [
+	'index.php'   =>'Tableau de bord',
+	'stats.php'   =>'Statistiques',
+	'reports.php' =>'Rapports',
+	'movies.php'  =>'Films',
+	'users.php'   =>'Utilisateurs',
+	'comments.php'=>'Commentaires',
+	'messages.php'=>'Messages',
+];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
